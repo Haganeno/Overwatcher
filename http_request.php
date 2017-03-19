@@ -33,7 +33,7 @@ public function __construct($_battle_tag, $_platform, $_region, $_mode, $_hero) 
 }
 
 public function sendRequest() {
-  global $battle_tag, $platform, $region, $mode, $hero, $result;
+  global $battle_tag, $platform, $region, $mode, $hero, $result, $arrContextOptions;
   $url = 'https://api.lootbox.eu/';
   $url .= $platform;
   $url .= '/';
