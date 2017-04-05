@@ -27,7 +27,7 @@ class Parser {
   	}
   	return $achievements;
   }
-  
+
   public static function parse_platforms($json){
   	$json_data = json_decode($json, true);
   	$platform_list=array();
@@ -66,9 +66,9 @@ class Parser {
 			}
 		}
 		return $data;
-	}	
-	
-  
+	}
+
+
   public static function parse_allHeroes($json){
   	$json_data = json_decode($json, true);
   	$data = array();
@@ -78,20 +78,20 @@ class Parser {
   	var_dump($data);
   	return $data;
   }
-  
+
 	public static function parse_hero($json){
 		$json_data = json_decode($json, true);
-		$heros = array();
+		$heroes = array();
 		foreach($json_data as $key => $value){
-			$heros[$key] = new HeroStats();
-			$heros[$key]->setHeroName($key);
+			$heroes[$key] = new HeroStats();
+			$heroes[$key]->setHeroName($key);
 			foreach($value as $id => $val){
-				$heros[$key]->setValue($id, $val);
+				$heroes[$key]->setValue($id, $val);
 			}
 		}
 		return $heroes;
 	}
-	
+
  public static function parse_heroes($json){
  	$json_data = json_decode($json, true);
  	$heroes_data = array();
@@ -103,7 +103,7 @@ class Parser {
  					break;
  				case $id=="playtime" || $id=="image"||$id=="percentage":
  				$heroes_data[$hero_name][$id] = $val;
- 				break;		
+ 				break;
  			}
  		}
  	}

@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 class HeroStats{
-  private $heroName;  
+  private $heroName;
   private $stats;
 
   //Constructeur par défaut de la classe
@@ -17,12 +17,16 @@ class HeroStats{
   public function getHeroName(){
     return $this->heroName;
   }
-  
+
   public function setValue($_key, $_value){
   	$this->stats[$_key]=$_value;
   }
-  
+
   public function getValue($_key){
   	return $this->stats[$_key];
+  }
+
+  public function getStats() {
+    return $this->stats;
   }
 }

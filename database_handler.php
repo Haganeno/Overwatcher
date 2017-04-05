@@ -1,4 +1,5 @@
 <?php
+
 class DatabaseHandler {
 
   private $hostname;
@@ -17,17 +18,20 @@ class DatabaseHandler {
     catch (Exception $e) {
       die("Error : ".$e->getMessage());
     }
+  }
 
-    $db->query("INSERT INTO user(idUser, userName, rankLevel, skillRating) VALUES(01,'Haganeno-21124', 200, 3000)");
-    $db->query("INSERT INTO user(idUser, userName, rankLevel, skillRating) VALUES(02,'Haganeno-21124', 210, 3000)");
-
-    $db->query("INSERT INTO user(idUser, userName, rankLevel, skillRating) VALUES(03,'Haganeno-21124', 4100, 3000)");
-
+  public function insert($table, $data) {
+    $query = sprintf("INSERT INTO ".$table.' (%s) VALUES ("%s")', implode(",", array_keys($data)), implode('","', array_values($data)));
+    echo $query;
+    $db->query($query);
+  }
+/*
     $r = $db->query("SELECT * FROM user");
     while($data = $r->fetch()) {
       echo 'tag='.$data["userName"]." rank=".$data["rankLevel"]." SR=".$data["skillRating"]."<br>";
     }
-  }
+  }*/
+
 
   public function getDatabse() {
     return $this->db;
