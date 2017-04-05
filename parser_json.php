@@ -75,7 +75,6 @@ class Parser {
   	foreach($json_data as $key => $value){
   		$data[$key] = $value;
   	}
-  	var_dump($data);
   	return $data;
   }
 
