@@ -1,8 +1,81 @@
 <?php
 error_reporting(E_ALL);
-require_once "hero_stats.php";
-require_once "achievement.php";
+//require_once "hero_stats.php";
+//require_once "achievement.php";
 class Parser {
+  public static function parse($json){
+  	$json_data = json_decode($json, true);
+  	$return = array(); //Ne pas oublier de retourner TOUTES les valeurs
+  	$platform_list = array();
+  	$overall_stats = array();
+  	$game_stats = array();
+  	$average_stats = array();
+  	$competitive_hero_stats = array();
+  	$quickaplay_hero_stats = array();
+  	$hero_stats = array();
+  	$playtime = array();
+  	$achievements = array();
+  	foreach($json_data as $platform => $value){
+  		if($platform != "_request" && $platform != "any"){
+  			$platform_list[$platform] = true;
+  			foreach($value as $request = $val){
+  				if($request == "stats"){
+  					foreach($val as $mode => $res){
+  						foreach($res as $type => $data){
+  							foreach($data as $title => $number){
+  								switch($type){
+  								case "overall_stats":
+  									$overall_stats[$mode][$title]=$number;
+  									break;
+  								case "game_stats":
+  									$game_stats[$mode][$title]=$number;
+  									break;
+  								case "average_stats":
+  									$average_stats[$mode][$title]=$number;
+  									break;
+  								case:"competitive":
+  									break;
+  								}
+  							}
+  						}
+  					}
+  				}
+  				else if ($request = "heroes"){
+  					foreach($val as $stat_or_playtime => $res){
+  						foreach($res as $mode => $name){
+  							if($stat_or_playtime == "stats"){
+  								if($mode = "quickplay"){
+  									foreach($name as $general_or_specific => $data){
+  										foreach($data as $title => $number){
+  											$quickplay_hero_stats[$name][$general_or_specific]=$number;
+  										}
+  									}
+  								}else{ //Competitive
+  									foreach($name as $general_or_specific => $data){
+  										foreach($data as $title => $number){
+  											$competitive_hero_stats[$name][$general_or_specific]=$number;
+  										}
+  									}
+  								}
+  							}else { //Playtime
+  								foreach($name as $hero_data => $number){
+  									$playtime[$name][$mode] = $number;
+  								}
+  							}
+  						}
+  					}
+  				}else { //Achievements
+  					foreach($val as $type => $var){
+  						foreach($var as $title => $bool){
+  							$achievements[$title] = $bool;
+  						} 
+  					}
+  				}
+  			}
+  		}
+  	}
+  }
+  /*  
   public static function parse_achievements($json){
   	$json_data = json_decode($json, true);
   	$achievements = array();
@@ -27,7 +100,7 @@ class Parser {
   	}
   	return $achievements;
   }
-
+  
   public static function parse_platforms($json){
   	$json_data = json_decode($json, true);
   	$platform_list=array();
@@ -66,31 +139,32 @@ class Parser {
 			}
 		}
 		return $data;
-	}
-
-
+	}	
+	
+  
   public static function parse_allHeroes($json){
   	$json_data = json_decode($json, true);
   	$data = array();
   	foreach($json_data as $key => $value){
   		$data[$key] = $value;
   	}
+  	var_dump($data);
   	return $data;
   }
-
+  
 	public static function parse_hero($json){
 		$json_data = json_decode($json, true);
-		$heroes = array();
+		$heros = array();
 		foreach($json_data as $key => $value){
-			$heroes[$key] = new HeroStats();
-			$heroes[$key]->setHeroName($key);
+			$heros[$key] = new HeroStats();
+			$heros[$key]->setHeroName($key);
 			foreach($value as $id => $val){
-				$heroes[$key]->setValue($id, $val);
+				$heros[$key]->setValue($id, $val);
 			}
 		}
 		return $heroes;
 	}
-
+	
  public static function parse_heroes($json){
  	$json_data = json_decode($json, true);
  	$heroes_data = array();
@@ -102,10 +176,10 @@ class Parser {
  					break;
  				case $id=="playtime" || $id=="image"||$id=="percentage":
  				$heroes_data[$hero_name][$id] = $val;
- 				break;
+ 				break;		
  			}
  		}
  	}
  	return $heroes_data;
- }
+ }*/
 }
