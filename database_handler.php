@@ -9,7 +9,7 @@ class DatabaseHandler {
   private $password;
 
   // requete et parsing initial pour remplir la BDD
-  public function __construct($_hostname, $_dbname, $_login, $_password, $id, $platform, $region) {
+  public function __construct($_hostname, $_dbname, $_login, $_password, $id, $platform) {
     $this->hostname = $_hostname;
     $this->dbname = $_dbname;
     $this->login = $_login;
@@ -23,7 +23,7 @@ class DatabaseHandler {
 
     $mode = "profile";
     $hero = "";
-    $request = new Request($id, $platform, $region, $mode, $hero);
+    $request = new Request($id, $platform, $mode);
     $request->sendRequest();
     $res_json = $request->result();
     $r = Parser::parse_profile($res_json);
@@ -31,13 +31,13 @@ class DatabaseHandler {
 
     $mode = "competitive";
     $hero = "allHeroes";
-    $request = new Request($id, $platform, $region, $mode, $hero);
+    $request = new Request($id, $platform, $mode);
     $request->sendRequest();
     $res_json = $request->result();
     $r2 = Parser::parse_allHeroes($res_json);
 
     $mode = "quickplay";
-    $request = new Request($id, $platform, $region, $mode, $hero);
+    $request = new Request($id, $platform, $mode);
     $request->sendRequest();
     $res_json = $request->result();
     $r3 = Parser::parse_allHeroes($res_json);
