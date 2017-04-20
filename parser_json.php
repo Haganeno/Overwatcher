@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 class Parser {
   public static function parse($json){
   	$json_data = json_decode($json, true);
-  	$return = array(); //Ne pas oublier de retourner TOUTES les valeurs
-  	$platform_list = array();
+  	$return = array();
+  	$account_list = array();
   	$overall_stats = array();
   	$game_stats = array();
   	$average_stats = array();
@@ -15,9 +15,9 @@ class Parser {
   	$hero_stats = array();
   	$playtime = array();
   	$achievements = array();
-  	foreach($json_data as $platform => $value){
-  		if($platform != "_request" && $platform != "any"){
-  			$platform_list[$platform] = true;
+  	foreach($json_data as $account => $value){
+  		if($account != "_request" && $account != "any"){
+  			$account_list[$account] = true;
   			foreach($value as $request = $val){
   				if($request == "stats"){
   					foreach($val as $mode => $res){
@@ -74,6 +74,17 @@ class Parser {
   			}
   		}
   	}
+
+  	$return["accounts"] = $account_list;
+  	$return["game_stats"] = $game_stats;
+  	$return["average_stats"] = $average_stats;
+  	$return["competitive_heros"] = $competitive_hero_stats;
+  	$return["quickplay_heros"] = $quickplay_hero_stats;
+  	$return["specific_heros_stats"] = $hero_stats;
+  	$return["playtime"] = $playtime;
+  	$return["achievement_list"] = $achievements;
+  	return $return;
+ 
   }
   /*  
   public static function parse_achievements($json){
