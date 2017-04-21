@@ -1,7 +1,5 @@
 <?php
 error_reporting(E_ALL);
-//require_once "hero_stats.php";
-//require_once "achievement.php";
 class Parser {
   public static function parse($json){
   	$json_data = json_decode($json, true);
@@ -162,36 +160,7 @@ class Parser {
   	}
   	var_dump($data);
   	return $data;
+=======
+>>>>>>> 36d55a82f36918b98427526dde5f8e2a871f3ec7
   }
-
-	public static function parse_hero($json){
-		$json_data = json_decode($json, true);
-		$heros = array();
-		foreach($json_data as $key => $value){
-			$heros[$key] = new HeroStats();
-			$heros[$key]->setHeroName($key);
-			foreach($value as $id => $val){
-				$heros[$key]->setValue($id, $val);
-			}
-		}
-		return $heroes;
-	}
-
- public static function parse_heroes($json){
- 	$json_data = json_decode($json, true);
- 	$heroes_data = array();
- 	foreach($json_data as $key => $value){
- 		foreach($value as $id => $val){
- 			switch ($id){
- 				case "name":
- 					$hero_name = $val;
- 					break;
- 				case $id=="playtime" || $id=="image"||$id=="percentage":
- 				$heroes_data[$hero_name][$id] = $val;
- 				break;
- 			}
- 		}
- 	}
- 	return $heroes_data;
- }*/
 }
