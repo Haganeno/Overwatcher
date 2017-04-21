@@ -5,10 +5,11 @@ require_once 'parser_json.php';
 //require_once 'database_handler.php';
 $id = "Haganeno-21124";
 $platform = "pc";
-$mode = "heroes";
+$mode = "blob";
 $request = new Request($id, $platform, $mode);
 $result = $request->sendRequest();
-$a = Parser::parse($result);
-echo($a);
+$parsed = Parser::parse($result);
+//echo '<pre>' . var_export(array_keys($parsed), true) . '</pre>';
+//echo '<pre>' . var_export($parsed, true) . '</pre>';
 //$dbhandler = new DatabaseHandler("localhost", "mydb", "root", "oth", "Haganeno-21124", "pc");
 ?>

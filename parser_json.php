@@ -24,6 +24,7 @@ class Parser {
   									switch($type){
   									case "overall_stats":
   										$overall_stats[$mode][$title]=$number;
+
   										break;
   									case "game_stats":
   										$game_stats[$mode][$title]=$number;
@@ -41,7 +42,7 @@ class Parser {
   					foreach($val as $stat_or_playtime => $res){
   						foreach($res as $mode => $name){
   						$name_keys = array_keys($name);
-  						
+
   						if($stat_or_playtime == "stats"){
   								foreach($name as $general_or_specific => $data){
   								$compt = 0;
@@ -79,6 +80,7 @@ class Parser {
   	$return["quickplay_heroes_stats"] = $quickplay_hero_stats;
   	$return["playtime"] = $playtime;
   	$return["achievement_list"] = $achievements;
+    $return["overall_stats"] = $overall_stats;
   	return $return;
   }
 }

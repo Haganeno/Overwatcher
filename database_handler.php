@@ -22,6 +22,13 @@ class DatabaseHandler {
     }
 
 
+    $id = "Haganeno-21124";
+    $platform = "pc";
+    $mode = "stats";
+    $request = new Request($id, $platform, $mode);
+    $result = $request->sendRequest();
+    $parsed = Parser::parse($result);
+
     /*$mode = "profile";
     $hero = "";
     $request = new Request($id, $platform, $mode);
