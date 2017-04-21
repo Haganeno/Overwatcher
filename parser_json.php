@@ -84,11 +84,8 @@ class Parser {
   	$return["playtime"] = $playtime;
   	$return["achievement_list"] = $achievements;
   	return $return;
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 46981eab1b55dee9fcc2b9f7b7de7e00b1fc9066
+
   }
   /*
   public static function parse_achievements($json){
