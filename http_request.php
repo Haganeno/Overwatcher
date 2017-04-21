@@ -35,6 +35,7 @@ public function sendRequest() {
     $url = self::url();
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_USERAGENT, 'Overwatcher');
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     $this->result = curl_exec($curl);
     curl_close($curl);
     return $this->result;

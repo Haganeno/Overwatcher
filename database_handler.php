@@ -21,7 +21,8 @@ class DatabaseHandler {
       die("Error : ".$e->getMessage());
     }
 
-    $mode = "profile";
+
+    /*$mode = "profile";
     $hero = "";
     $request = new Request($id, $platform, $mode);
     $request->sendRequest();
@@ -55,8 +56,9 @@ class DatabaseHandler {
     $query = substr($query, 0, -1);
     $query .=")";
     $db->exec($query);
-    echo $query;
+    echo $query;*/
   }
+
 }
 
  ?>
