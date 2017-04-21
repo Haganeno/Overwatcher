@@ -4,6 +4,7 @@ class Parser {
   public static function parse($json){
   	$json_data = json_decode($json, true);
   	$return = array();
+    $competitive_bool=false;
   	$account_list = array();
   	$overall_stats = array();
   	$game_stats = array();
@@ -13,18 +14,22 @@ class Parser {
   	$playtime = array();
   	$achievements = array();
   	foreach($json_data as $account => $value){
-  		if($account != "_request" && $account != "any" && $value!=null){
+  		if($account != "_request" && $account != "any" && $value!=null && $account == "eu"){
   			$account_list[$account] = true;
   			foreach($value as $request => $val){
+
   				if($request == "stats"){
   					foreach($val as $mode => $res){
+              // test pour voir si le joueur à jouer au non en mode competitif
+              if($res == NULL) {
+                $competitive_bool = false;
+              }
+              else $competitive_bool = true;
   						foreach($res as $type => $data){
-  							if($type!="competitive"){
   								foreach($data as $title => $number){
   									switch($type){
   									case "overall_stats":
   										$overall_stats[$mode][$title]=$number;
-
   										break;
   									case "game_stats":
   										$game_stats[$mode][$title]=$number;
@@ -34,7 +39,7 @@ class Parser {
   										break;
   									}
   								}
-  							}
+
   						}
   					}
   				}
@@ -81,6 +86,7 @@ class Parser {
   	$return["playtime"] = $playtime;
   	$return["achievement_list"] = $achievements;
     $return["overall_stats"] = $overall_stats;
+    $return["competitive"] = $competitive_bool;
   	return $return;
   }
 }
