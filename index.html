@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="static/main.css">
+  <link rel="icon" type="image/png" sizes="128x128" href="static/favicon.png">
+  <title>Overwatch Design</title>
+</head>
+<body>
+  <aside id="menu">
+    <section id="search_form">
+      <form name="search" id="search" method="post" action="/result.php">
+        <fieldset id="pick_user">
+          <h1>Choose a player</h1>
+          <input type="text" name="tag" placeholder="e.g. Username-1234" title="e.g. Username-1234" pattern="\w+[-]\d+" maxlength="20"
+            autocomplete="off" required autofocus>
+          <select name="platform">
+            <option value="pc">PC</option>
+            <option value="psn">PlayStation</option>
+            <option value="xbl">Xbox</option>
+          </select>
+          <h1>What are you looking for?</h1>
+          <select name="query">
+            <option value="achievements">Achievements</option>
+            <option value="stats">Player stats</option>
+            <option value="heroes">Hero stats</option>
+          </select>
+        </fieldset>
+        <fieldset id="pick_mode" disabled>
+          <h1>Pick a mode</h1>
+          <select name="mode">
+            <option value="quick">Quick play</option>
+            <option value="competitive">Competitive play</option>
+          </select>
+        </fieldset>
+        <fieldset id="pick_heroes" disabled>
+          <h1>Select your heroes</h1>
+          <div id="hero_icons">
+            <label class="hero_icon"><input type="checkbox" name="ana"><img src="static/icons/ana.png" alt="Ana"></label>
+            <label class="hero_icon"><input type="checkbox" name="bastion"><img src="static/icons/bastion.png" alt="Bastion"></label>
+            <label class="hero_icon"><input type="checkbox" name="dva"><img src="static/icons/dva.png" alt="D.Va"></label>
+            <label class="hero_icon"><input type="checkbox" name="genji"><img src="static/icons/genji.png" alt="Genji"></label>
+            <label class="hero_icon"><input type="checkbox" name="hanzo"><img src="static/icons/hanzo.png" alt="Hanzo"></label>
+            <label class="hero_icon"><input type="checkbox" name="junkrat"><img src="static/icons/junkrat.png" alt="Junkrat"></label>
+            <label class="hero_icon"><input type="checkbox" name="lucio"><img src="static/icons/lucio.png" alt="Lúcio"></label>
+            <label class="hero_icon"><input type="checkbox" name="mccree"><img src="static/icons/mccree.png" alt="McCree"></label>
+            <label class="hero_icon"><input type="checkbox" name="mei"><img src="static/icons/mei.png" alt="Mei"></label>
+            <label class="hero_icon"><input type="checkbox" name="mercy"><img src="static/icons/mercy.png" alt="Mercy"></label>
+            <label class="hero_icon"><input type="checkbox" name="pharah"><img src="static/icons/pharah.png" alt="Pharah"></label>
+            <label class="hero_icon"><input type="checkbox" name="reaper"><img src="static/icons/reaper.png" alt="Reaper"></label>
+            <label class="hero_icon"><input type="checkbox" name="reinhardt"><img src="static/icons/reinhardt.png" alt="Reinhardt"></label>
+            <label class="hero_icon"><input type="checkbox" name="roadhog"><img src="static/icons/roadhog.png" alt="Roadhog"></label>
+            <label class="hero_icon"><input type="checkbox" name="soldier76"><img src="static/icons/soldier76.png" alt="Soldier: 76"></label>
+            <label class="hero_icon"><input type="checkbox" name="sombra"><img src="static/icons/sombra.png" alt="Sombra"></label>
+            <label class="hero_icon"><input type="checkbox" name="symmetra"><img src="static/icons/symmetra.png" alt="Symmetra"></label>
+            <label class="hero_icon"><input type="checkbox" name="torbjorn"><img src="static/icons/torbjorn.png" alt="Torbjörn"></label>
+            <label class="hero_icon"><input type="checkbox" name="tracer"><img src="static/icons/tracer.png" alt="Tracer"></label>
+            <label class="hero_icon"><input type="checkbox" name="widowmaker"><img src="static/icons/widowmaker.png" alt="Widowmaker"></label>
+            <label class="hero_icon"><input type="checkbox" name="winston"><img src="static/icons/winston.png" alt="Winston"></label>
+            <label class="hero_icon"><input type="checkbox" name="zarya"><img src="static/icons/zarya.png" alt="Zarya"></label>
+            <label class="hero_icon"><input type="checkbox" name="zenyatta"><img src="static/icons/zenyatta.png" alt="Zenyatta"></label>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+    <section id="search_button">
+      <input type="submit" form="search" value="Ready?" disabled>
+    </section>
+  </aside>
+  <main>
+    <section class="player">
+      <img class="avatar" src="https://blzgdapipro-a.akamaihd.net/game/unlocks/0x02500000000008EE.png" alt="Avatar">
+      <p class="username">Uwhipa</p>
+      <div class="level" style="background-image: url(https://blzgdapipro-a.akamaihd.net/game/playerlevelrewards/0x0250000000000921_Border.png)">
+        <p>100</p>
+      </div>
+      <div class="rank">
+        <img src="https://blzgdapipro-a.akamaihd.net/game/rank-icons/season-2/rank-3.png" alt="Rank">
+        <p>2008</p>
+      </div>
+    </section>
+    <section class="stats">
+      <table>
+        <tr><th colspan="2">Quick play</th></tr>
+        <tr>
+          <td>Games won</td>
+          <td>76</td>
+        </tr>
+        <tr>
+          <td>Time played</td>
+          <td>18 hours</td>
+        </tr>
+        <tr><th colspan="2">Competitive play</th></tr>
+        <tr>
+          <td>Games played</td>
+          <td>17</td>
+        </tr>
+        <tr>
+          <td>Games won</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Games lost</td>
+          <td>13</td>
+        </tr>
+        <tr>
+          <td>Time played</td>
+          <td>3 hours</td>
+        </tr>
+      </table>
+    </section>
+    <section class="playtime">
+      <div class="playtime_bar">Ana</div>
+      <div class="playtime_bar" style="width: 80%">Soldier: 76</div>
+      <div class="playtime_bar" style="width: 60%">Tracer</div>
+    </section>
+  </main>
+  <script src="static/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866668"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="all.svg">
+  <title
+     id="title4573">All Heroes</title>
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect4542"
+       is_visible="true"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4491">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0"
+         id="stop4487" />
+      <stop
+         style="stop-color:#e6e6e6;stop-opacity:1"
+         offset="1"
+         id="stop4489" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4491"
+       id="linearGradient4493"
+       x1="-24.095982"
+       y1="278.55473"
+       x2="9.7706833"
+       y2="278.55473"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(287.2293,-295.48806)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="63.002383"
+     inkscape:cy="86.782413"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>All Heroes</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-263.13332)"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:url(#linearGradient4493);fill-opacity:1;stroke:none;stroke-width:2.60867453;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect3680"
+       width="33.866665"
+       height="33.866665"
+       x="263.13333"
+       y="-33.866665"
+       transform="rotate(90)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Content">
+    <g
+       aria-label="All"
+       transform="matrix(0.26458333,0,0,0.26458333,10.251819,2.0564462)"
+       style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:25px;font-family:BigNoodleTitling;-inkscape-font-specification:'BigNoodleTitling, Oblique';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#4d4d4d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="flowRoot4496">
+      <path
+         d="M 11.345156,50.268533 H 7.5851562 l 1.24,-23.8 q 0.2400001,-4.92 4.7599998,-4.92 h 2.8 q 4.52,0 4.28,4.92 l -1.24,23.8 h -3.76 l 0.52,-10.52 h -4.32 z m 5.04,-14 0.52,-9.56 q 0.08,-1.68 -1.56,-1.68 h -1.04 q -1.64,0 -1.72,1.68 l -0.52,9.56 z"
+         style="fill:#4d4d4d;fill-opacity:1;fill-rule:nonzero"
+         id="path4575" />
+      <path
+         d="m 31.667031,50.268533 h -8.96 l 1.48,-28.72 h 3.76 l -1.32,25.24 h 5.2 z"
+         style="fill:#4d4d4d;fill-opacity:1;fill-rule:nonzero"
+         id="path4577" />
+      <path
+         d="m 42.760781,50.268533 h -8.96 l 1.48,-28.72 h 3.76 l -1.32,25.24 h 5.2 z"
+         style="fill:#4d4d4d;fill-opacity:1;fill-rule:nonzero"
+         id="path4579" />
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4554"
+       style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:25px;font-family:BigNoodleTitling;-inkscape-font-specification:'BigNoodleTitling, Oblique';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       d="M 8.2385164,26.108838 8.418433,22.658671 H 7.1907664 L 7.0108497,26.108838 H 6.0160165 L 6.4075998,18.510005 H 7.402433 L 7.2330997,21.737921 H 8.4607664 L 8.6300997,18.510005 H 9.624933 l -0.3915833,7.598833 z" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4556"
+       style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:25px;font-family:BigNoodleTitling;-inkscape-font-specification:'BigNoodleTitling, Oblique';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       d="m 10.170802,26.108838 0.391583,-7.598833 h 2.4765 l -0.04233,0.92075 h -1.481666 l -0.127,2.307166 h 1.312333 l -0.04233,0.92075 h -1.312334 l -0.137583,2.529417 h 1.481667 l -0.04233,0.92075 z" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4558"
+       style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:25px;font-family:BigNoodleTitling;-inkscape-font-specification:'BigNoodleTitling, Oblique';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       d="m 13.745653,18.510005 h 1.947333 q 1.143,0 1.0795,1.30175 l -0.09525,1.87325 q -0.05292,0.994833 -0.66675,1.259416 l 0.53975,3.164417 H 15.60832 l -0.497417,-3.069167 h -0.60325 l -0.15875,3.069167 H 13.35407 Z m 0.804333,3.661833 h 0.656167 q 0.4445,0 0.47625,-0.550333 l 0.08467,-1.640417 q 0.03175,-0.550333 -0.41275,-0.550333 h -0.656167 z" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4560"
+       style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:25px;font-family:BigNoodleTitling;-inkscape-font-specification:'BigNoodleTitling, Oblique';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f79e1b;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       d="m 18.414391,26.108838 q -1.2065,0 -1.143,-1.291167 l 0.264584,-5.005916 q 0.0635,-1.30175 1.259416,-1.30175 h 0.9525 q 1.195917,0 1.132417,1.30175 l -0.264583,5.005916 q -0.0635,1.291167 -1.27,1.291167 z m 0.275167,-0.92075 h 0.508 q 0.402167,0 0.423333,-0.4445 l 0.264584,-4.868333 q 0.02117,-0.4445 -0.423334,-0.4445 h -0.47625 q -0.433916,0 -0.455083,0.4445 l -0.264583,4.868333 q -0.02117,0.4445 0.423333,0.4445 z" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4562"
+       style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:25px;font-family:BigNoodleTitling;-inkscape-font-specification:'BigNoodleTitling, Oblique';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       d="m 21.436264,26.108838 0.391583,-7.598833 h 2.4765 l -0.04233,0.92075 H 22.78035 l -0.127,2.307166 h 1.312333 l -0.04233,0.92075 H 22.61102 l -0.137584,2.529417 h 1.481667 l -0.04233,0.92075 z" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4564"
+       style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:25px;font-family:BigNoodleTitling;-inkscape-font-specification:'BigNoodleTitling, Oblique';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       d="m 26.810282,20.552588 0.03175,-0.66675 q 0.03175,-0.455083 -0.402167,-0.455083 h -0.15875 q -0.423333,0 -0.455083,0.455083 l -0.0635,1.259417 q -0.01058,0.211666 0.0635,0.28575 0.08467,0.07408 0.264583,0.1905 l 0.910167,0.518583 q 0.306916,0.179917 0.423333,0.28575 0.127,0.09525 0.1905,0.243417 0.07408,0.137583 0.05292,0.53975 l -0.08467,1.61925 q -0.0635,1.280583 -1.27,1.280583 h -0.60325 q -1.195917,0 -1.121833,-1.397 l 0.02117,-0.381 h 0.994834 l -0.03175,0.41275 q -0.02117,0.4445 0.423333,0.4445 h 0.179917 q 0.391583,0 0.41275,-0.4445 l 0.07408,-1.291167 q 0.01058,-0.211666 -0.07408,-0.28575 -0.07408,-0.07408 -0.254,-0.1905 l -0.910167,-0.53975 q -0.306917,-0.169333 -0.4445,-0.28575 -0.127,-0.116416 -0.179917,-0.296333 -0.05292,-0.1905 -0.04233,-0.486833 l 0.08467,-1.55575 q 0.0635,-1.30175 1.259416,-1.30175 h 0.613834 q 1.195916,0 1.132416,1.30175 l -0.04233,0.740833 z" />
+  </g>
+</svg>
