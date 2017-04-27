@@ -15,7 +15,7 @@
       	require_once "http_request.php";
       	$request = new Request("{$_POST["tag"]}", "pc", "blob");
       	$request_result = $request->sendRequest();
-      	$result = Parser::parse($request_result);
+      	$result = Parser::parse($request_result); //Récupération de la réponse JSON
       ?>
         <fieldset id="pick_user">
           <h1>Choose a player</h1>
@@ -76,130 +76,127 @@
   </aside>
   <main>
     <?php
-		  		echo '<section class="player">';
-		      $overall = $result["overall_stats"];
-		  		echo "<img class=\"avatar\" src=\"{$overall["quickplay"]["avatar"]}\" alt=\"Avatar\">";
-          $tag = $_POST["tag"];
-          $username = explode("-", $tag);
-      	  echo "<p class=\"username\">{$username[0]}</p>";
-		    	echo "<div class=\"level\" style=\"background-image: url({$overall["quickplay"]["rank_image"]})\">";
-		    	$lvl = $overall["quickplay"]["level"];
-		    	$prestige = $overall["quickplay"]["prestige"];
-		    	$level = $prestige*100 + $lvl;
-          $tier = $overall["quickplay"]["tier"];
-		      echo "<p>$level</p>";
-		    	echo "</div>";
-		    	echo '<div class="rank">';
-		      echo '<img src="static/rank_icons/'.$tier.'.png" alt="Rank">';
-          echo "<p>{$overall["quickplay"]["comprank"]}</p>";
-		    	echo "</div></section>";
-
-		  		if($_POST["query"]=="stats"){
-
-						echo '<section class="stats"><table>';
-				    echo '<tr><th colspan="2">Quickplay Average</th></tr>';
-				    $average = $result["average_stats"];
-				    foreach($average["quickplay"] as $key => $value){
-				    	$pretty_string = ucwords(str_replace("_"," ",$key));
-				    	echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-				    }
-				    echo '<tr><th colspan="2">Competitive Average</th></tr>';
-				    foreach($average["competitive"] as $key => $value){
-				    	$pretty_string = ucwords(str_replace("_"," ",$key));
-				    	echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-				    }
-				    echo '<tr><th colspan="2">Quickplay Game Stats</th></tr>';
-				    $game_stats = $result["game_stats"];
-				    foreach($game_stats["quickplay"] as $key => $value){
-				    	$pretty_string = ucwords(str_replace("_"," ",$key));
-				    	echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-				    }
-				    echo '<tr><th colspan="2">Competitive Game Stats</th></tr>';
-				    $game_stats = $result["game_stats"];
-				    foreach($game_stats["competitive"] as $key => $value){
-				    	$pretty_string = ucwords(str_replace("_"," ",$key));
-				    	echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-				    }
-				 		echo' </table></section>';
-
-				 		echo '<section class="playtime">';
-						$playtime = $result["playtime"];
-						$max_time = 1;
-						$compt = 1;
-						arsort($playtime["competitive"]);
-						arsort($playtime["quickplay"]);
-						foreach($playtime as $mode => $hero_data){
-							if($mode == "competitive"){
-								echo '<h1 align:left>Playtime Competitive</h1>';
-								foreach($hero_data as $name => $time){
-									if($compt == 1){
-										$compt = 0;
-										$max_time = $playtime[$mode][$name];
-									}
-									$percent = 100*$playtime[$mode][$name]/$max_time;
-									if($percent >1){
-										$format = number_format($percent,2);
-										echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}: {$format}%</div>";
-									}
-								}
-								$compt = 1;
-								echo '<br>';
-							}else{ //Quickplay
-								arsort($playtime["quickplay"]);
-								echo '<h1 align:left>Playtime Quickplay</h1>';
-								foreach($hero_data as $name => $time){
-									if($compt == 1){
-										$compt = 0;
-										$max_time = $playtime[$mode][$name];
-									}
-									$percent = 100*$playtime[$mode][$name]/$max_time;
-									if($percent >1){
-										$format = number_format($percent,2);
-										echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}: {$format}%</div>";
-									}
-								}
-							}
-						}
-
-						echo '</section>';
-    		}else if($_POST["query"]=="heroes"){
-
-    			$competitive_stats = $result["competitive_heroes_stats"];
-    			$quickplay_stats = $result["quickplay_heroes_stats"];
-    			echo'<section class=heroes><table>';
-    			if($_POST["mode"]=="competitive"){
-    				echo '<tr><th colspan="2">Competitive Stats</th></tr>';
-    				foreach($competitive_stats as $hero_name => $stats){
-    					if(array_key_exists($hero_name,$_POST)){
-    						if($_POST[$hero_name]=="on"){
-    							$pretty_name = ucwords($hero_name);
-    							echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
-    							foreach($stats as $data => $value){
-    								$pretty_string = ucwords(str_replace("_"," ",$data));
+	echo '<section class="player">';
+	$overall = $result["overall_stats"]; //Affichage des informations du compte en bannière
+	echo "<img class=\"avatar\" src=\"{$overall["quickplay"]["avatar"]}\" alt=\"Avatar\">";
+        $tag = $_POST["tag"];
+        $username = explode("-", $tag);
+      	echo "<p class=\"username\">{$username[0]}</p>";
+	echo "<div class=\"level\" style=\"background-image: url({$overall["quickplay"]["rank_image"]})\">";
+	$lvl = $overall["quickplay"]["level"];
+	$prestige = $overall["quickplay"]["prestige"];
+	$level = $prestige*100 + $lvl;
+        $tier = $overall["quickplay"]["tier"];
+	echo "<p>$level</p>";
+	echo "</div>";
+	echo '<div class="rank">';
+	echo '<img src="static/rank_icons/'.$tier.'.png" alt="Rank">';
+        echo "<p>{$overall["quickplay"]["comprank"]}</p>";
+	echo "</div></section>";
+	//Affichage des statistiques du joueur, onglet Player Stats  
+	if($_POST["query"]=="stats"){
+		echo '<section class="stats"><table>';
+	    	echo '<tr><th colspan="2">Quickplay Average</th></tr>';
+		$average = $result["average_stats"];
+		foreach($average["quickplay"] as $key => $value){
+			$pretty_string = ucwords(str_replace("_"," ",$key));
+			echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
+		}
+		echo '<tr><th colspan="2">Competitive Average</th></tr>';
+		foreach($average["competitive"] as $key => $value){
+			$pretty_string = ucwords(str_replace("_"," ",$key));
+			echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
+		}
+		echo '<tr><th colspan="2">Quickplay Game Stats</th></tr>';
+		$game_stats = $result["game_stats"];
+		foreach($game_stats["quickplay"] as $key => $value){
+			$pretty_string = ucwords(str_replace("_"," ",$key));
+			echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
+		}
+		echo '<tr><th colspan="2">Competitive Game Stats</th></tr>';
+		$game_stats = $result["game_stats"];
+		foreach($game_stats["competitive"] as $key => $value){
+			$pretty_string = ucwords(str_replace("_"," ",$key));
+			echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
+		}
+		echo' </table></section>';
+		//Affichage du temps de jeu
+		echo '<section class="playtime">';
+		$playtime = $result["playtime"];
+		$max_time = 1; //On conserve le temps de jeu max pour faire un pourcentage facile à afficher
+		$compt = 1; //Vérifie si on a déjà enregistré un temps de jeu max
+		arsort($playtime["competitive"]); //Trier le tableau par ordre décroissant
+		arsort($playtime["quickplay"]);
+		foreach($playtime as $mode => $hero_data){
+			if($mode == "competitive"){
+				echo '<h1 align:left>Playtime Competitive</h1>';
+				foreach($hero_data as $name => $time){
+					if($compt == 1){
+						$compt = 0;
+						$max_time = $playtime[$mode][$name];
+					}
+					$percent = 100*$playtime[$mode][$name]/$max_time;
+					if($percent >1){ //Les héros très peu joué ne sont pas affichés
+						$format = number_format($percent,2);
+						echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}: {$format}%</div>";
+					}
+				}
+				$compt = 1;
+				echo '<br>';
+			}else{ //Quickplay
+				arsort($playtime["quickplay"]);
+				echo '<h1 align:left>Playtime Quickplay</h1>';
+				foreach($hero_data as $name => $time){
+					if($compt == 1){
+						$compt = 0;
+						$max_time = $playtime[$mode][$name];
+					}
+					$percent = 100*$playtime[$mode][$name]/$max_time;
+					if($percent >1){
+						$format = number_format($percent,2);
+						echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}: {$format}%</div>";
+					}
+				}
+			}
+		}
+		echo '</section>';
+	//Affichage des statistiques par héro	
+    	}else if($_POST["query"]=="heroes"){
+    		$competitive_stats = $result["competitive_heroes_stats"];
+    		$quickplay_stats = $result["quickplay_heroes_stats"];
+    		echo'<section class=heroes><table>';
+    		if($_POST["mode"]=="competitive"){
+    			echo '<tr><th colspan="2">Competitive Stats</th></tr>';
+    			foreach($competitive_stats as $hero_name => $stats){
+    				if(array_key_exists($hero_name,$_POST)){ //Si le héro a été choisi lors de la requête, on l'affiche
+    					if($_POST[$hero_name]=="on"){
+    						$pretty_name = ucwords($hero_name);
+    						echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
+    						foreach($stats as $data => $value){
+    							$pretty_string = ucwords(str_replace("_"," ",$data));
 		      					echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-    							}
-    						}
-    					}
-    				}
-    			}else{  //Quickplay
-    				echo '<tr><th colspan="2">Quickplay Stats</th></tr>';
-    				foreach($quickplay_stats as $hero_name => $stats){
-    					if(array_key_exists($hero_name,$_POST)){
-    						if($_POST[$hero_name]=="on"){
-    							$pretty_name = ucwords($hero_name);
-    							echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
-    							foreach($stats as $data => $value){
-    								$pretty_string = ucwords(str_replace("_"," ",$data));
-		      					echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-    							}
     						}
     					}
     				}
     			}
-    			echo '</table></section>';
-
-    		}else if($_POST["query"]=="achievements"){
-
+    		}else{  //Quickplay
+    			echo '<tr><th colspan="2">Quickplay Stats</th></tr>';
+    			foreach($quickplay_stats as $hero_name => $stats){
+    				if(array_key_exists($hero_name,$_POST)){
+    					if($_POST[$hero_name]=="on"){
+    						$pretty_name = ucwords($hero_name);
+    						echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
+    						foreach($stats as $data => $value){
+    							$pretty_string = ucwords(str_replace("_"," ",$data));
+		      					echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
+    						}
+    					}
+    				}
+    			}
+    		}
+    		echo '</table></section>';
+	//Affichage du statut des succès	
+    	}else if($_POST["query"]=="achievements"){
     		$achievements = $result["achievements"];
     		echo '<section class="achievements"><table>';
     		foreach($achievements as $type => $val){
@@ -216,9 +213,7 @@
     			}
     		}
     		echo'</table></section>';
-
-    		}
-
+	}
     	?>
 
     </section>
