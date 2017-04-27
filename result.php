@@ -79,20 +79,23 @@
 		  		echo '<section class="player">';
 		      $overall = $result["overall_stats"];
 		  		echo "<img class=\"avatar\" src=\"{$overall["quickplay"]["avatar"]}\" alt=\"Avatar\">";
-		    	echo "<p class=\"username\">{$_POST["tag"]}</p>";
+          $tag = $_POST["tag"];
+          $username = explode("-", $tag);
+      	  echo "<p class=\"username\">{$username[0]}</p>";
 		    	echo "<div class=\"level\" style=\"background-image: url({$overall["quickplay"]["rank_image"]})\">";
 		    	$lvl = $overall["quickplay"]["level"];
 		    	$prestige = $overall["quickplay"]["prestige"];
 		    	$level = $prestige*100 + $lvl;
+          $tier = $overall["quickplay"]["tier"];
 		      echo "<p>$level</p>";
 		    	echo "</div>";
 		    	echo '<div class="rank">';
-		      echo '<img src="https://blzgdapipro-a.akamaihd.net/game/rank-icons/season-2/rank-3.png" alt="Rank">';
-		      echo "<p>{$overall["quickplay"]["comprank"]}</p>";
+		      echo '<img src="static/rank_icons/'.$tier.'.png" alt="Rank">';
+          echo "<p>{$overall["quickplay"]["comprank"]}</p>";
 		    	echo "</div></section>";
-		    	
+
 		  		if($_POST["query"]=="stats"){
-						  
+
 						echo '<section class="stats"><table>';
 				    echo '<tr><th colspan="2">Quickplay Average</th></tr>';
 				    $average = $result["average_stats"];
@@ -116,9 +119,9 @@
 				    foreach($game_stats["competitive"] as $key => $value){
 				    	$pretty_string = ucwords(str_replace("_"," ",$key));
 				    	echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-				    }        
+				    }
 				 		echo' </table></section>';
-				 		
+
 				 		echo '<section class="playtime">';
 						$playtime = $result["playtime"];
 						$max_time = 1;
@@ -157,10 +160,10 @@
 								}
 							}
 						}
-						
+
 						echo '</section>';
     		}else if($_POST["query"]=="heroes"){
-    		
+
     			$competitive_stats = $result["competitive_heroes_stats"];
     			$quickplay_stats = $result["quickplay_heroes_stats"];
     			echo'<section class=heroes><table>';
@@ -176,7 +179,7 @@
 		      					echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
     							}
     						}
-    					}    				
+    					}
     				}
     			}else{  //Quickplay
     				echo '<tr><th colspan="2">Quickplay Stats</th></tr>';
@@ -190,13 +193,13 @@
 		      					echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
     							}
     						}
-    					}    				
+    					}
     				}
     			}
     			echo '</table></section>';
-				    		
+
     		}else if($_POST["query"]=="achievements"){
-    		
+
     		$achievements = $result["achievements"];
     		echo '<section class="achievements"><table>';
     		foreach($achievements as $type => $val){
@@ -208,14 +211,14 @@
     					$obtained = "Achievement Unlocked!";
     				}else{
     					$obtained = "Not Unlocked Yet";
-    				}	
+    				}
     				echo"<tr><td>$pretty_string</td><td>$obtained</td></tr>";
     			}
     		}
     		echo'</table></section>';
-    		
+
     		}
-    		
+
     	?>
 
     </section>
