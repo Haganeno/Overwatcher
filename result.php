@@ -135,10 +135,12 @@
 									}
 									$percent = 100*$playtime[$mode][$name]/$max_time;
 									if($percent >1){
-										echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}</div>";
+										$format = number_format($percent,2);
+										echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}: {$format}%</div>";
 									}
 								}
 								$compt = 1;
+								echo '<br>';
 							}else{ //Quickplay
 								arsort($playtime["quickplay"]);
 								echo '<h1 align:left>Playtime Quickplay</h1>';
@@ -149,7 +151,8 @@
 									}
 									$percent = 100*$playtime[$mode][$name]/$max_time;
 									if($percent >1){
-										echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}</div>";
+										$format = number_format($percent,2);
+										echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}: {$format}%</div>";
 									}
 								}
 							}
@@ -164,24 +167,30 @@
     			if($_POST["mode"]=="competitive"){
     				echo '<tr><th colspan="2">Competitive Stats</th></tr>';
     				foreach($competitive_stats as $hero_name => $stats){
+    					if(array_key_exists($hero_name,$_POST)){
     						if($_POST[$hero_name]=="on"){
-    						$pretty_name = ucwords($hero_name);
-    						echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
-    						foreach($stats as $data => $value){
-    							$pretty_string = ucwords(str_replace("_"," ",$data));
-		      				echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-    					}
-    				}
+    							$pretty_name = ucwords($hero_name);
+    							echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
+    							foreach($stats as $data => $value){
+    								$pretty_string = ucwords(str_replace("_"," ",$data));
+		      					echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
+    							}
+    						}
+    					}    				
     				}
     			}else{  //Quickplay
     				echo '<tr><th colspan="2">Quickplay Stats</th></tr>';
-    				foreach($quickplay_stats as $hero => $stats){
-    						$pretty_name = ucwords($hero);
-    						echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
-    						foreach($stats as $data => $value){
+    				foreach($quickplay_stats as $hero_name => $stats){
+    					if(array_key_exists($hero_name,$_POST)){
+    						if($_POST[$hero_name]=="on"){
+    							$pretty_name = ucwords($hero_name);
+    							echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
+    							foreach($stats as $data => $value){
     								$pretty_string = ucwords(str_replace("_"," ",$data));
 		      					echo"<tr><td>$pretty_string</td><td>$value</td></tr>";
-    					}
+    							}
+    						}
+    					}    				
     				}
     			}
     			echo '</table></section>';
@@ -202,8 +211,8 @@
     				}	
     				echo"<tr><td>$pretty_string</td><td>$obtained</td></tr>";
     			}
-    			echo'</table></section>';
     		}
+    		echo'</table></section>';
     		
     		}
     		
