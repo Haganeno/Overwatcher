@@ -40,19 +40,18 @@ class Parser {
   				else if ($request == "heroes"){
   					foreach($val as $stat_or_playtime => $res){
   						foreach($res as $mode => $name){
-  						$name_keys = array_keys($name);
-  						if($stat_or_playtime == "stats"){
-  								foreach($name as $general_or_specific => $data){
-  								$compt = 0;
-  									foreach($data as $title => $number){
-  										if($mode =="competitive"){
-  											$competitive_hero_stats[$name_keys[$compt]][$title]=$number;
-  										}else{
-  											$quickplay_hero_stats[$name_keys[$compt]][$title]=$number;
+  						if($stat_or_playtime == "stats"){ 
+	  							foreach($name as $hero_name => $gen_avg_spec){
+	  								foreach($gen_avg_spec as $type => $title){
+	  									foreach($title as $stat => $number){				
+  											if($mode =="competitive"){
+  												$competitive_hero_stats[$hero_name][$stat]=$number;
+  											}else{
+  												$quickplay_hero_stats[$hero_name][$stat]=$number;
+  											}
   										}
-  										$compt++;
   									}
-                   }
+                  }
   							}else { //Playtime
   								foreach($name as $hero_data => $number){
   									$playtime[$mode][$hero_data] = $number;
@@ -63,7 +62,7 @@ class Parser {
   				}else { //Achievements
   					foreach($val as $type => $var){
   						foreach($var as $title => $bool){
-  							$achievements[$title] = $bool;
+  							$achievements[$type][$title] = $bool;
   						}
   					}
   				}
@@ -75,9 +74,9 @@ class Parser {
   	$return["game_stats"] = $game_stats;
   	$return["average_stats"] = $average_stats;
   	$return["competitive_heroes_stats"] = $competitive_hero_stats;
-  	$return["quickplay_heroes_stats"] = $quickplay_hero_stats;
+  	$return["quickplay_heroes_stats"] = $quickplay_hero_stats;	
   	$return["playtime"] = $playtime;
-  	$return["achievement_list"] = $achievements;
+  	$return["achievements"] = $achievements;
     $return["overall_stats"] = $overall_stats;
   	return $return;
   }

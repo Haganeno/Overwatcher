@@ -229,3 +229,54 @@ main section {
 .stats th {
     background-color: #5d80a6;
 }
+
+.achievements table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+.achievements td {
+    padding: 10px;
+    text-align: left;
+}
+
+.achievements th {
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.achievements tr:nth-child(odd) {
+    background-color: #cfd9db;
+}
+
+.achievements th {
+    background-color: #5d80a6;
+}
+.heroes table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+.heroes td {
+    padding: 10px;
+    text-align: left;
+}
+
+.heroes th {
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.heroes tr:nth-child(odd) {
+    background-color: #cfd9db;
+}
+
+.heroes th {
+    background-color: #5d80a6;
+}
