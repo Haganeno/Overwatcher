@@ -161,6 +161,13 @@ main section {
     margin-right: 20px;
 }
 
+.logo {
+		margin: auto;
+		display: block;
+		opacity: 0.2;
+		
+}
+
 .level {
     display: flex;
     flex-direction: column;

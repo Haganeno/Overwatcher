@@ -13,6 +13,9 @@ class Parser {
   	$playtime = array();
   	$achievements = array();
   	foreach($json_data as $account => $value){
+  		if($account == "error"){
+  			return null;
+  		}
   		if($account != "_request" && $account != "any" && $value!=null && $account =="eu"){
   			$account_list[$account] = true;
   			foreach($value as $request => $val){

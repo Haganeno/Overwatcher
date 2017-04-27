@@ -76,6 +76,10 @@
   </aside>
   <main>
     <?php
+    if($result == null){
+    	 echo '<img class="logo" src="static/Overwatch_logo.png" alt="Logo" >';
+    	 echo '<h1 align="center"> Error 404: Profile not Found</h1>';
+    }else{
 	echo '<section class="player">';
 	$overall = $result["overall_stats"]; //Affichage des informations du compte en bannière
 	echo "<img class=\"avatar\" src=\"{$overall["quickplay"]["avatar"]}\" alt=\"Avatar\">";
@@ -213,6 +217,7 @@
     			}
     		}
     		echo'</table></section>';
+	}
 	}
     	?>
 
