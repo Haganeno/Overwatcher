@@ -55,7 +55,7 @@ class Parser {
                    }
   							}else { //Playtime
   								foreach($name as $hero_data => $number){
-  									$playtime[$hero_data][$mode] = $number;
+  									$playtime[$mode][$hero_data] = $number;
   								}
   							}
   						}

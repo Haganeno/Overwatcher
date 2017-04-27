@@ -122,34 +122,41 @@
      		
      		echo '<section class="playtime">';
     		$playtime = $result["playtime"];
-    		arsort($playtime);
-    		$compt = 1;
     		$max_time = 1;
-    		foreach($playtime as $name => $time){
-    			if($compt == 1){
-    				$max_time = $playtime[$name]["competitive"];
-    				$compt = 0;
-    			}
-    			$percent = 100*$playtime[$name]["competitive"]/$max_time;
-    			if($percent > 1){
-    			echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}</div>";
+    		$compt = 1;
+    		arsort($playtime["competitive"]);
+    		arsort($playtime["quickplay"]);
+    		foreach($playtime as $mode => $hero_data){
+    			if($mode == "competitive"){
+    				echo '<h1 align:left>Playtime Competitive</h1>';
+    				foreach($hero_data as $name => $time){
+    					if($compt == 1){
+    						$compt = 0;
+    						$max_time = $playtime[$mode][$name];
+    					}
+    					$percent = 100*$playtime[$mode][$name]/$max_time;
+    					if($percent >1){
+    						echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}</div>";
+    					}
+    				}
+    				$compt = 1;
+    			}else{ //Quickplay
+    				arsort($playtime["quickplay"]);
+    				echo '<h1 align:left>Playtime Quickplay</h1>';
+    				foreach($hero_data as $name => $time){
+    					if($compt == 1){
+    						$compt = 0;
+    						$max_time = $playtime[$mode][$name];
+    					}
+    					$percent = 100*$playtime[$mode][$name]/$max_time;
+    					if($percent >1){
+    						echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}</div>";
+    					}
+    				}
     			}
     		}
     		
-     		echo '<section class="playtime">';
-    		arsort($playtime);
-    		$compt = 1;
-    		$max_time = 1;
-    		foreach($playtime as $name => $time){
-    		if($compt = 1){
-    				$max_time = $playtime[$name]["quickplay"];
-    				$compt = 0;
-    			}
-    			$percent = 100*$playtime[$name]["quickplay"]/$max_time;
-    			if($percent > 1){
-    			echo "<div class=\"playtime_bar\" style=\"width: {$percent}%\">{$name}</div>";
-    			}
-    		}
+    		echo '</section>';
     		
     		//else if query = "hero_stats";
     		
