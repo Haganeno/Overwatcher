@@ -162,10 +162,25 @@ main section {
 }
 
 .logo {
-		margin: auto;
-		display: block;
-		opacity: 0.2;
-		
+    margin: auto;
+    display: block;
+    opacity: 0.2;
+}
+
+main h1 {
+    font-family: 'Big Noodle Titling', sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.playtime h1 {
+    padding: 10px;
+    font-family: 'Lato', sans-serif;
+    background-color: #5d80a6;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .level {
@@ -262,6 +277,7 @@ main section {
 .achievements th {
     background-color: #5d80a6;
 }
+
 .heroes table {
     width: 100%;
     border-collapse: collapse;

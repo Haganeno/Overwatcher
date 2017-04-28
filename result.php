@@ -15,12 +15,11 @@
       	require_once "http_request.php";
       	$request = new Request("{$_POST["tag"]}", "pc", "blob");
       	$request_result = $request->sendRequest();
-      	$result = Parser::parse($request_result); //Récupération de la réponse JSON
+      	$result = Parser::parse($request_result); // Récupération de la réponse JSON
       ?>
         <fieldset id="pick_user">
           <h1>Choose a player</h1>
-          <input type="text" name="tag" placeholder="e.g. Username-1234" title="e.g. Username-1234" pattern="\w+[-]\d+" maxlength="20"
-            autocomplete="off" required autofocus>
+          <input type="text" name="tag" placeholder="e.g. Username-1234" title="e.g. Username-1234" pattern="\w+[-]\d+" maxlength="20" required autofocus>
           <select name="platform">
             <option value="pc">PC</option>
             <option value="psn">PlayStation</option>
@@ -78,7 +77,7 @@
     <?php
     if($result == null){
     	 echo '<img class="logo" src="static/Overwatch_logo.png" alt="Logo" >';
-    	 echo '<h1 align="center"> Error 404: Profile not Found</h1>';
+    	 echo '<h1>Error 404: Profile not Found</h1>';
     }else{
 	echo '<section class="player">';
 	$overall = $result["overall_stats"]; //Affichage des informations du compte en bannière
@@ -133,7 +132,7 @@
 		arsort($playtime["quickplay"]);
 		foreach($playtime as $mode => $hero_data){
 			if($mode == "competitive"){
-				echo '<h1 align:left>Playtime Competitive</h1>';
+				echo '<h1>Playtime Competitive</h1>';
 				foreach($hero_data as $name => $time){
 					if($compt == 1){
 						$compt = 0;
@@ -149,7 +148,7 @@
 				echo '<br>';
 			}else{ //Quickplay
 				arsort($playtime["quickplay"]);
-				echo '<h1 align:left>Playtime Quickplay</h1>';
+				echo '<h1>Playtime Quickplay</h1>';
 				foreach($hero_data as $name => $time){
 					if($compt == 1){
 						$compt = 0;
@@ -172,7 +171,7 @@
     		if($_POST["mode"]=="competitive"){
     			echo '<tr><th colspan="2">Competitive Stats</th></tr>';
     			foreach($competitive_stats as $hero_name => $stats){
-    				if(array_key_exists($hero_name,$_POST)){ //Si le héro a été choisi lors de la requête, on l'affiche
+    				if(array_key_exists($hero_name,$_POST)){ // Si le héros a été choisi lors de la requête, on l'affiche
     					if($_POST[$hero_name]=="on"){
     						$pretty_name = ucwords($hero_name);
     						echo "<tr><th colspan=\"2\">$pretty_name</th></tr>";
@@ -199,7 +198,7 @@
     			}
     		}
     		echo '</table></section>';
-	//Affichage du statut des succès	
+	// Affichage du statut des succès	
     	}else if($_POST["query"]=="achievements"){
     		$achievements = $result["achievements"];
     		echo '<section class="achievements"><table>';
